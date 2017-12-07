@@ -40,7 +40,9 @@ class ImageGrid extends Component {
             let upper = IMG_HEIGHT * (this.props.currentImgIdx/2);
             let down = upper + DEVICE_HEIGHT - IMG_HEIGHT;
             if ((upper < this.offsetY) || (this.offsetY < Math.min(down,imgHeight))) {
-                this.scroll.scrollTo({y:Math.min(IMG_HEIGHT * (this.props.currentImgIdx/2), imgHeight)});
+                setTimeout(()=>this.scroll.scrollTo({
+                    y:Math.min(IMG_HEIGHT * (this.props.currentImgIdx/2), imgHeight)}),
+                900);
             }
         }
     }
