@@ -37,13 +37,9 @@ class ImageGrid extends Component {
     componentDidUpdate() {
         let imgHeight = (this.props.imgs.length) * (Math.floor(IMG_HEIGHT + 1)/2) - 2 * IMG_HEIGHT;
         if (!this.props.isGrid) {
-            let upper = IMG_HEIGHT * (this.props.currentImgIdx/2);
-            let down = upper + DEVICE_HEIGHT - IMG_HEIGHT;
-            if ((upper < this.offsetY) || (this.offsetY < Math.min(down,imgHeight))) {
-                setTimeout(()=>this.scroll.scrollTo({
-                    y:Math.min(IMG_HEIGHT * (this.props.currentImgIdx/2), imgHeight)}),
-                900);
-            }
+            setTimeout(()=>this.scroll.scrollTo({
+                y:Math.min(IMG_HEIGHT * Math.floor(this.props.currentImgIdx/2), imgHeight)}),
+            900);
         }
     }
     handleScroll(event) {
